@@ -1,0 +1,43 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Добавить газету</title>
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <script type="text/javascript" src="/scripts/jquery-3.1.1.js"></script>
+</head>
+
+<body>
+<div class="top-div">
+    <h1>Добавить газету</h1>
+    <div class="data-div">
+        <form method="post" action="/post/add-paper">
+            <br/>
+            <label>
+                Индекс:
+                <input id="index" type="text" name="index" value="">
+            </label>
+            <br/>
+            <label>
+                Название:
+                <input id="name" type="text" name="name" value="">
+            </label>
+            <br/>
+            <label>
+                ФИО Редактора:
+                <input id="editor" type="text" name="editor" value="">
+            </label>
+            <br/>
+            <label>
+                Цена:
+                <input id="price" type="text" name="price" value="">
+            </label>
+            <br/>
+            <input type="submit" value="Добавить">
+        </form>
+    </div>
+</div>
+</body>
+</html>

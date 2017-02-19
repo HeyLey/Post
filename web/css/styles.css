@@ -1,0 +1,42 @@
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.top-div {
+    text-align: center;
+}
+
+.data-div {
+    display: inline-block;
+    text-align: left;
+    margin: 10px;
+    padding: 20px;
+    background-color: #ffE0D0;
+}
+
+div.value {
+    display: inline-block;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #97ff9b;
+}
+
+a:hover, a:visited, a:link, a:active {
+    color: darkblue;
+    text-decoration: none;
+}
