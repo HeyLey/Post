@@ -28,7 +28,7 @@ public class PapersWithLowNumber extends BaseRequestProcessor{
         builder.addHeader("НАЗВАНИЕ", "НОМЕР ОТДЕЛЕНИЯ");
 
         try {
-            String query = "SELECT G.НАЗВАНИЕ, O.НОМЕР FROM ГАЗЕТА G JOIN РАСПРЕДЕЛЕНИЕ R ON G.ID=R.ГАЗЕТА_ID JOIN ОТДЕЛЕНИЕ_ПОЧТЫ O ON O.ID=R.ОТДЕЛЕНИЕ_ID WHERE R.КОЛИЧЕСТВО < 1000";
+            String query = "SELECT G.НАЗВАНИЕ, O.НОМЕР FROM ГАЗЕТА G JOIN РАСПРЕДЕЛЕНИЕ R ON G.ID=R.ГАЗЕТА_ID JOIN ОТДЕЛЕНИЕ_ПОЧТЫ O ON O.ID=R.ОТДЕЛЕНИЕ_ID WHERE R.КОЛИЧЕСТВО < ?";;
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, number);
             ResultSet rs = preparedStmt.executeQuery();
@@ -37,7 +37,7 @@ public class PapersWithLowNumber extends BaseRequestProcessor{
                 String name = rs.getString(1);
                 String num = rs.getString(2);
                 builder.addRow(name, num);
-            };
+            }
             conn.close();
         } catch (SQLException e) {
             throw new ServletException(e);

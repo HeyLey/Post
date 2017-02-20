@@ -23,6 +23,7 @@ public class PapersServlet extends HttpServlet {
         processorMap.put("add-new-order", new AddNewOrder());
         processorMap.put("move-order", new MoveOrder());
         processorMap.put("open-close-typography", new OpenCloseTypography());
+        processorMap.put("typography-report", new TypographyReport());
 
         processorMap.put("all-posts", new AllPosts());
         processorMap.put("change-papers-number", new ChangePapersNumber());
