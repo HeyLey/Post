@@ -75,7 +75,7 @@ public class TypographyReport extends BaseRequestProcessor {
         builder.addHeader("ГАЗЕТА", "ОТДЕЛЕНИЕ","КОЛИЧЕСТВО");
 
         try {
-            String query = "SELECT G.НАЗВАНИЕ, P.НОМЕР, SUM(КОЛИЧЕСТВО) FROM РАСПРЕДЕЛЕНИЕ JOIN ГАЗЕТА G ON ГАЗЕТА_ID=G.ID JOIN ОТДЕЛЕНИЕ_ПОЧТЫ P ON ОТДЕЛЕНИЕ_ID=P.ID WHERE ТИПОГРАФИЯ_ID = ? GROUP BY ГАЗЕТА_ID, ОТДЕЛЕНИЕ_ID;";
+            String query = "SELECT G.НАЗВАНИЕ, P.НОМЕР, SUM(КОЛИЧЕСТВО) FROM ЗАКАЗ JOIN ГАЗЕТА G ON ГАЗЕТА_ID=G.ID JOIN ОТДЕЛЕНИЕ_ПОЧТЫ P ON ОТДЕЛЕНИЕ_ID=P.ID WHERE ТИПОГРАФИЯ_ID = ? GROUP BY ГАЗЕТА_ID, ОТДЕЛЕНИЕ_ID;";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, id);
 
@@ -100,7 +100,7 @@ public class TypographyReport extends BaseRequestProcessor {
         builder.addHeader("ГАЗЕТА", "КОЛИЧЕСТВО");
 
         try {
-            String query = "SELECT G.НАЗВАНИЕ, SUM(КОЛИЧЕСТВО) FROM РАСПРЕДЕЛЕНИЕ JOIN ГАЗЕТА G ON ГАЗЕТА_ID=G.ID WHERE ТИПОГРАФИЯ_ID = ? GROUP BY ГАЗЕТА_ID";
+            String query = "SELECT G.НАЗВАНИЕ, SUM(КОЛИЧЕСТВО) FROM ЗАКАЗ JOIN ГАЗЕТА G ON ГАЗЕТА_ID=G.ID WHERE ТИПОГРАФИЯ_ID = ? GROUP BY ГАЗЕТА_ID";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, id);
 
@@ -120,7 +120,7 @@ public class TypographyReport extends BaseRequestProcessor {
 
     public void addNum(StringBuilder typographyReportData, Connection conn, Integer id) throws ServletException {
         try {
-            String query = "SELECT SUM(КОЛИЧЕСТВО) FROM РАСПРЕДЕЛЕНИЕ WHERE ТИПОГРАФИЯ_ID = ?";
+            String query = "SELECT SUM(КОЛИЧЕСТВО) FROM ЗАКАЗ WHERE ТИПОГРАФИЯ_ID = ?";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, id);
 

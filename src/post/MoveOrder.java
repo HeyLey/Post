@@ -28,7 +28,7 @@ public class MoveOrder extends BaseRequestProcessor {
         Connection conn = DataProvider.createConnection();
 
         try {
-            String query1 = "UPDATE РАСПРЕДЕЛЕНИЕ SET КОЛИЧЕСТВО = КОЛИЧЕСТВО - ? where ГАЗЕТА_ID = ? and ОТДЕЛЕНИЕ_ID = ? and ТИПОГРАФИЯ_ID = ?";
+            String query1 = "UPDATE ЗАКАЗ SET КОЛИЧЕСТВО = КОЛИЧЕСТВО - ? where ГАЗЕТА_ID = ? and ОТДЕЛЕНИЕ_ID = ? and ТИПОГРАФИЯ_ID = ?";
             PreparedStatement preparedStmt1 = conn.prepareStatement(query1);
             preparedStmt1.setString(1, number);
             preparedStmt1.setString(2, paper);
@@ -36,7 +36,7 @@ public class MoveOrder extends BaseRequestProcessor {
             preparedStmt1.setString(4, typography1);
             preparedStmt1.executeUpdate();
 
-            String query2 = "UPDATE РАСПРЕДЕЛЕНИЕ SET КОЛИЧЕСТВО = КОЛИЧЕСТВО + ? where ГАЗЕТА_ID = ? and ОТДЕЛЕНИЕ_ID = ? and ТИПОГРАФИЯ_ID = ?";
+            String query2 = "UPDATE ЗАКАЗ SET КОЛИЧЕСТВО = КОЛИЧЕСТВО + ? where ГАЗЕТА_ID = ? and ОТДЕЛЕНИЕ_ID = ? and ТИПОГРАФИЯ_ID = ?";
             PreparedStatement preparedStmt2 = conn.prepareStatement(query2);
             preparedStmt2.setString(1, number);
             preparedStmt2.setString(2, paper);

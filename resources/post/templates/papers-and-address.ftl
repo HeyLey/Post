@@ -28,7 +28,7 @@
             <label>
                 Адрес типографии
                 <select name="typography">
-                    <option value="-" selected>- Выберите адресс -</option>
+                    <option value="-" selected>- Выберите адрес -</option>
                 <#list typography as id, name>
                     <option value="${id}">${name}</option>
                 </#list>

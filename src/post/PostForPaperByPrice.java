@@ -28,7 +28,7 @@ public class PostForPaperByPrice extends BaseRequestProcessor{
         builder.addHeader("АДРЕС");
 
         try {
-            String query = "SELECT DISTINCT T.АДРЕС FROM ТИПОГРАФИЯ T JOIN РАСПРЕДЕЛЕНИЕ R ON T.ID=R.ТИПОГРАФИЯ_ID JOIN ГАЗЕТА G ON R.ГАЗЕТА_ID=G.ID WHERE G.ЦЕНА > ?;";
+            String query = "SELECT DISTINCT T.АДРЕС FROM ТИПОГРАФИЯ T JOIN ЗАКАЗ R ON T.ID=R.ТИПОГРАФИЯ_ID JOIN ГАЗЕТА G ON R.ГАЗЕТА_ID=G.ID WHERE G.ЦЕНА > ?;";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, price);
             ResultSet rs = preparedStmt.executeQuery();

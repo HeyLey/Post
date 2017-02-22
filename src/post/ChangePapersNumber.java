@@ -27,7 +27,7 @@ public class ChangePapersNumber extends BaseRequestProcessor{
         Connection conn = DataProvider.createConnection();
 
         try {
-            String query = "UPDATE РАСПРЕДЕЛЕНИЕ SET КОЛИЧЕСТВО = ? where ГАЗЕТА_ID = ? AND ОТДЕЛЕНИЕ_ID = ? AND ТИПОГРАФИЯ_ID = ?";
+            String query = "UPDATE ЗАКАЗ SET КОЛИЧЕСТВО = ? where ГАЗЕТА_ID = ? AND ОТДЕЛЕНИЕ_ID = ? AND ТИПОГРАФИЯ_ID = ?";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, number);
             preparedStmt.setString(2, paper);

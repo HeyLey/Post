@@ -32,7 +32,7 @@ public class PapersWithAddress extends BaseRequestProcessor{
         builder.addHeader("АДРЕС");
 
         try {
-            String query = "SELECT O.АДРЕС FROM РАСПРЕДЕЛЕНИЕ R JOIN ОТДЕЛЕНИЕ_ПОЧТЫ O ON R.ОТДЕЛЕНИЕ_ID=O.ID WHERE R.ТИПОГРАФИЯ_ID = ? AND R.ГАЗЕТА_ID = ?;\n";
+            String query = "SELECT O.АДРЕС FROM ЗАКАЗ R JOIN ОТДЕЛЕНИЕ_ПОЧТЫ O ON R.ОТДЕЛЕНИЕ_ID=O.ID WHERE R.ТИПОГРАФИЯ_ID = ? AND R.ГАЗЕТА_ID = ?;\n";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, paper);
             preparedStmt.setString(2, typography);

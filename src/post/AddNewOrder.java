@@ -27,7 +27,7 @@ public class AddNewOrder extends BaseRequestProcessor {
         Connection conn = DataProvider.createConnection();
 
         try {
-            String query = "INSERT INTO РАСПРЕДЕЛЕНИЕ (ГАЗЕТА_ID, ОТДЕЛЕНИЕ_ID, ТИПОГРАФИЯ_ID, КОЛИЧЕСТВО) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO ЗАКАЗ (ГАЗЕТА_ID, ОТДЕЛЕНИЕ_ID, ТИПОГРАФИЯ_ID, КОЛИЧЕСТВО) VALUES (?, ?, ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, paper);
             stmt.setString(2, typography);

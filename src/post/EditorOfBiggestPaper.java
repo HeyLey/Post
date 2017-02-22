@@ -32,7 +32,7 @@ public class EditorOfBiggestPaper extends BaseRequestProcessor{
         builder.addHeader("ФИО РЕДАКТОРА", "ТИРАЖ");
 
         try {
-            String query = "SELECT SUM(КОЛИЧЕСТВО) S, G.ФИО_РЕДАКТОРА FROM РАСПРЕДЕЛЕНИЕ R JOIN ГАЗЕТА G ON G.ID = R.ГАЗЕТА_ID WHERE R.ТИПОГРАФИЯ_ID=? GROUP BY ГАЗЕТА_ID ORDER BY S DESC LIMIT 1";
+            String query = "SELECT SUM(КОЛИЧЕСТВО) S, G.ФИО_РЕДАКТОРА FROM ЗАКАЗ R JOIN ГАЗЕТА G ON G.ID = R.ГАЗЕТА_ID WHERE R.ТИПОГРАФИЯ_ID=? GROUP BY ГАЗЕТА_ID ORDER BY S DESC LIMIT 1";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, typography);
             ResultSet rs = preparedStmt.executeQuery();

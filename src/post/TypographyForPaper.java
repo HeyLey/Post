@@ -29,7 +29,7 @@ public class TypographyForPaper extends BaseRequestProcessor{
         builder.addHeader("АДРЕС");
 
         try {
-            String query = "SELECT DISTINCT T.АДРЕС FROM РАСПРЕДЕЛЕНИЕ R JOIN ТИПОГРАФИЯ T ON T.ID=R.ТИПОГРАФИЯ_ID WHERE R.ГАЗЕТА_ID=?";
+            String query = "SELECT DISTINCT T.АДРЕС FROM ЗАКАЗ R JOIN ТИПОГРАФИЯ T ON T.ID=R.ТИПОГРАФИЯ_ID WHERE R.ГАЗЕТА_ID=?";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, paper);
             ResultSet rs = preparedStmt.executeQuery();
